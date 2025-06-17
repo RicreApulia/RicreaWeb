@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="{{.Site.Language}}" dir="ltr">
+    <head>
+        <title>{{.Site.Name}}</title>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- SEO -->
+        <meta name="description" content="{{.Site.About}}">
+        <meta name="keywords" content="{{.Site.Name}}">
+        <meta name="subject" content="{{.Site.About}}">
+        <meta name="language" content="{{.Site.Language}}">
+        <meta name="robots" content="index,follow">
+        <meta name="revised" content="{{print .Startup}}">
+        <meta name="abstract" content="{{.Site.About}}">
+        <meta name="topic" content="Software development">
+        <meta name="summary" content="{{.Site.About}}">
+        <meta name="designer" content="Davide Lavermicocca, dlavermicocca99.uni@gmail.com">
+        <meta name="author" content="Davide Lavermicocca, dlavermicocca99.uni@gmail.com">
+        <meta name="reply-to" content="{{.Site.Mail}}">
+        <meta name="owner" content="{{.Site.Owner}}, {{.Site.Mail}}">
+        <meta name="url" content="{{.Site.Domain}}">
+        <meta name="identifier-URL" content="{{.Site.Domain}}">
+        <meta name="pagename" content="{{.Site.Name}}">
+        <meta name="coverage" content="Worldwide">
+        <meta name="distribution" content="Global">
+        <meta name="rating" content="general">
+        <meta name="subtitle" content="{{.Site.About}}">
+        <meta name="date" content="{{ .Startup.Format "2006-01-02" }}">
+        <meta name="search_date" content="2021-10-9">
+        <meta name="medium" content="blog">
+        <meta name="pageKey" content="guest-home">
+        <!-- Beautify link -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{.Site.Name}} - Home">
+        <meta property="og:description" content="{{.Site.About}}">
+        <meta property="og:url" content="{{.Site.Domain}}">
+        <meta property="og:site_name" content="{{.Site.Name}}">
+        <meta property="og:updated_time" content="2021-10-11">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{.Site.Name}} - Home">
+        <meta name="twitter:description" content="{{.Site.About}}">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{.Path.Styles}}/main.css">
+        <link rel="stylesheet" href="{{.Path.Styles}}/home.css">
+        <!-- Scripts -->
+        <script defer src="{{.Path.Scripts}}/home.js"></script>
+    </head>
+    <body>
+        
+        <header class="hero cover flex-center" style="background-image: url('{{ .Path.Images }}/hero.jpeg')">
+            <nav id="navbar" class="flex-center">
+                <menu class="action">
+                    <li class="nav-item">
+                        <button type="button" class="link" onclick="mailDialog.open()">
+                            <span>Il tuo evento<span>
+                        </button>
+                    </li>
+                </menu>
+                <menu class="page">
+                    <li class="nav-item">
+                        <a href="" class="link">
+                            <span>Chi siamo<span>
+                        </a>
+                    </li>
+                </menu>
+                <menu class="social nav-item">
+                    {{ $img := .Path.Images }}
+                    {{ range $key, $value := .Site.Social }}
+                    <li>
+                        <a href="{{ $value }}" class="flex-center">
+                            <img class="icon" src="{{ $img }}/{{ $key }}.jpeg" alt="{{ $key }} logo"></i>
+                            <span>{{ $key }}</span>
+                        </a>
+                    </li>
+                    {{end}}
+                </menu>
+            </nav>
+            <h1 class="title">{{.Site.Name}}</h1>
+            <h2 class="subtitle">{{.Site.About}}</h2>
+            <aside class="openings">
+                <div class="wrapper">
+                    <div class="bubble">
+                        <strong class="week-title">LUN</strong>
+                        <strong class="week-title">MAR</strong>
+                        <strong class="week-title">MER</strong>
+                        <strong class="week-title">GIO</strong>
+                        <strong class="week-title">VEN</strong>
+                        <strong class="week-title">SAB</strong>
+                        <strong class="week-title">DOM</strong>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>20:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>11:30</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <div class="skeleton"></div>
+                            <figcaption>
+                                <span>???</span>
+                                <span>24:00</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <nav class="bar">
+                        <div class="flex-center wrapper"></div>
+                        <div class="flex-center wrapper">
+                            <p class="wrapper"><span>Vieni a trovarci in sede</span></p>
+                            <p class="wrapper"><span>Vieni a trovarci in sede</span></p>
+                        </div>
+                        <div class="flex-center wrapper">
+                            <p class="wrapper">
+                                <a href="https://maps.app.goo.gl/tP3swmGKm2uR78io6" class="link">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>Via Isonzo 62 Bisceglie</span>
+                                </a>
+                            </p>
+                            <p class="wrapper"><span></span></p>
+                        </div>
+                    </nav>
+                </div>
+            </aside>
+        </header>
+        <div class="spacer" style="height: 25vh">
+            
+            <p>Associazione di promozione sociale biscegliese di matrice ludico culturale</p>
+        </div>
+        <section>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+        </section>
+        <section>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+        </section>
+        <section>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+        </section>
+        <section>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+        </section>
+        <section class="flex-center">
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+            <p>Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Duis ac nulla varius diam ultrices rutrum. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Cras vel elit sed mi placerat pharetra eget vel odio. Aenean ullamcorper orci et vulputate fermentum. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Quisque vitae varius ex, eu volutpat orci. Proin ipsum purus, laoreet quis dictum a, laoreet sed ligula.</p>
+        </section>
+        <main>
+            
+        </main>
+        <footer id="footer" class="flex-center">
+            <p>
+                Made with ❤️ by <a href="https://github.com/DazFather" class="link">DazFather</a>
+            </p>
+        </footer>
+        <dialog id="mail-dialog">
+            <header>
+                <strong class="title">Organizza il tuo evento</strong>
+            </header>
+            <p>
+                Hai un locale che vuoi vivacizzare? blah blah blah...
+                Quisque vitae varius ex, eu volutpat orci. Integer ultricies malesuada quam. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Cras vel elit sed mi placerat pharetra eget vel odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Nullam tempus scelerisque purus, sed mattis elit condimentum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+            </p>
+            <nav class="keypad">
+                <button class="secondary button" type="button" onclick="mailDialog.close()">
+                    <i class="fa fa-close"></i>
+                    <span>Annulla</span>
+                </button>
+                <a class="primary button" href="mailto:{{.Site.Mail}}?subject=Richiesta%20organizzazione%20evento">
+                    <i class="fa fa-send"></i>
+                    <span>Scrivici</span>
+                </a>
+            </nav>
+            </form>
+        </dialog>
+    </body>
+</html>

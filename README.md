@@ -1,2 +1,1 @@
-# RicreaWeb
-Official RicreApulia website (WIP)
+Old (unfinished) version of the site - unmantained

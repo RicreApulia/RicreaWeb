@@ -1,0 +1,227 @@
+:root {
+    --animation-time: 0.5s;
+
+    /* ---- PALETTE ---- */
+    --dark-carbon: #141414;
+    --carbon: #222222;
+    --light-carbon: #333333;
+    --white: whitesmoke;
+    --black: black;
+    --red:          hsl(342, 100%, 34%); /* #AD0034 */
+    --light-red:    hsl(335, 100%, 37%); /* #BB004E */
+    --light-violet: hsl(324, 100%, 36%); /* #B7006E */
+    --violet:       hsl(303, 100%, 33%); /* #A900A0 */
+    --dark-violet:  hsl(291, 100%, 36%); /* #9B00B7 */
+    --purple:       hsl(281, 100%, 38%); /* #8300C0 */
+
+    /* ---- THEME ---- */
+    --accent: var(--light-violet, indianred);
+}
+
+.primary {
+    --accent: var(--purple, purple);
+}
+.secondary {
+    --accent: var(--red, red);
+}
+/* ---- NORMALIZE ---- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, menu {
+    margin: 0;
+    padding: 0;
+}
+menu {
+    list-style-type: none;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent, var(--violet, violet));
+    color: var(--white, whitesmoke);
+    font-size: 0.75em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    padding: 1em 1.5em;
+    border-radius: 1em;
+    outline: none;
+    border: none;
+    opacity: 0.75;
+    box-shadow: 0 0 0.25em var(--carbon);
+    transition: opacity linear, font-size, box-shadow, scale; 
+    transition-duration: var(--animation-time, 0.5s);
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 0.5ch;
+    text-decoration: none;
+}
+.button:hover {
+    box-shadow: 0 0 0.5em var(--carbon);
+    scale: 1.1;
+    opacity: 1;
+}
+.button:after {
+    background-color: var(--white, white);
+}
+.link {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    outline: inherit;
+    padding: 0;
+    outline: 0;
+    margin: 0;
+    color: var(--accent, inherit);
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    opacity: 0.85;
+    transition: opacity var(--animation-time, 0.5s) linear;
+}
+.link:hover {
+    opacity: 1;
+}
+.link:after, .button:after {
+    content: '';
+    position: absolute;
+    bottom: -0.25ch;
+    height: 0.25em;
+    left: -0.15ch;
+    border-radius: 0.15ch;
+    width: 0;
+    background-color: var(--accent);
+    transition: width var(--animation-time, 0.5s);
+}
+.link:hover:after {
+    width: calc(100% + 0.3ch);
+}
+
+p {    
+    margin: 0;
+}
+
+footer {
+    background: var(--carbon, gray);
+    color: var(--white, white);
+}
+
+
+/* ---- UTILITIES ---- */
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cover { /* use background-image: url() to set the image */
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.spacer {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* ---- NAVBAR ---- */
+
+#navbar {
+    font-size: 1.25rem;
+    display: inline-flex;
+    width: max-content;
+    gap: 1em;
+}
+#navbar .nav-item {
+}
+#navbar .nav-item:hover {
+    padding: 0.25em 0.75em 0.5em 0.75em;
+    font-size: 1.1em;
+}
+#navbar .nav-item, #navbar .nav-item, #navbar .nav-item a, #navbar .nav-item .link {
+    color: inherit;
+}
+#navbar .nav-item {
+    border-radius: 1.5em;
+    box-shadow: 0 0 0.5em var(--light-carbon, gray);
+    background-color: var(--white, white);
+    color: var(--dark-carbon, black);
+    display: inline-flex;
+    gap: 0.5em;
+    margin: 0;
+    padding: 0.25em 0.5em;
+    opacity: 0.75;
+    transition: opacity, padding, font-size, color;
+    transition-duration: var(--animation-time, 0.5s);
+}
+#navbar .nav-item:hover {
+    color: var(--accent, indianred);
+    opacity: 1;
+}
+#navbar .icon {
+    color: var(--black, black);
+    background-color: var(--white, white);
+    display: grid;
+    align-items: center;
+    border-radius: 1em;
+    width: 1em;
+    height: 1em;
+}
+#navbar .social a {
+    color: inherit;
+    font-weight: normal;
+}
+#navbar .social a:after {
+    content: none;
+}
+
+#navbar .social li {
+    background-color: hsla(0, 0%, 0%, 0.1);
+    border-radius: 1em;
+    max-width: 15ch;
+}
+
+#navbar .social li span {
+    display: block;
+    max-width: 0ch;
+    overflow: hidden;
+    transition: max-width var(--animation-time, 0.5s);
+}
+#navbar .social li:hover span {
+    margin: 0 0.5ch;
+    max-width: 12ch;
+}
+
+/* Disable all the animation if user request it or the device is not powerful */
+@media (prefers-reduced-motion), (update: none), (max-width: 900px) {
+    .animated {
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation: none !important;
+        -ms-animation: none !important;
+        animation: none !important;
+    }
+    ::root{
+        --animation-time: 0;
+    }
+}
