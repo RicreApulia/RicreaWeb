@@ -1,0 +1,45 @@
+<html>
+	<dialog id="mail-dialog">
+		<header>
+			<strong class="title">Organizza il tuo evento</strong>
+		</header>
+		<p>
+			Hai un locale che vuoi vivacizzare? blah blah blah...
+			Quisque vitae varius ex, eu volutpat orci. Integer ultricies malesuada quam. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Cras vel elit sed mi placerat pharetra eget vel odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Nullam tempus scelerisque purus, sed mattis elit condimentum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+		</p>
+		<nav class="keypad">
+			<button class="secondary button" type="button" onclick="mailDialog.close()">
+				<i class="fa fa-close"></i>
+				<span>Annulla</span>
+			</button>
+			<a class="primary button" href="mailto:{{.Site.Mail}}?subject=Richiesta%20organizzazione%20evento">
+				<i class="fa fa-send"></i>
+				<span>Scrivici</span>
+			</a>
+		</nav>
+	</dialog>
+</html>
+<script>
+	
+	function useDialog(dialogID, closeQuery, openQuery) {
+		const target = document.getElementById(dialogID)
+		const open = () => target.showModal()
+		const close = () => target.close() 
+		const res = { target, open, close }
+
+		if (!!openQuery) {
+			res.targetOpen = document.querySelector(openQuery)
+			res.targetOpen.addEventListener("click", open)
+		}
+
+		if (!!closeQuery) {
+			res.targetClose = target.querySelector(closeQuery);
+			res.targetClose.addEventListener("click", close)
+		}
+
+		return res
+	}
+
+	const mailDialog = useDialog('mail-dialog', 'button')
+</script>
+

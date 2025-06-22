@@ -1,0 +1,101 @@
+:root {
+    --animation-time: 0.5s;
+
+    /* ---- PALETTE ---- */
+    --dark-carbon: #141414;
+    --carbon: #222222;
+    --light-carbon: #333333;
+    --white: whitesmoke;
+    --black: black;
+    --red:          hsl(342, 100%, 34%); /* #AD0034 */
+    --light-red:    hsl(335, 100%, 37%); /* #BB004E */
+    --light-violet: hsl(324, 100%, 36%); /* #B7006E */
+    --violet:       hsl(303, 100%, 33%); /* #A900A0 */
+    --dark-violet:  hsl(291, 100%, 36%); /* #9B00B7 */
+    --purple:       hsl(281, 100%, 38%); /* #8300C0 */
+
+    /* ---- THEME ---- */
+    --accent: var(--light-violet, indianred);
+}
+
+.primary {
+    --accent: var(--purple, purple);
+}
+.secondary {
+    --accent: var(--red, red);
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent, var(--violet, violet));
+    color: var(--white, whitesmoke);
+    font-size: 0.75em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    padding: 1em 1.5em;
+    border-radius: 1em;
+    outline: none;
+    border: none;
+    opacity: 0.75;
+    box-shadow: 0 0 0.25em var(--carbon);
+    transition: opacity linear, font-size, box-shadow, scale; 
+    transition-duration: var(--animation-time, 0.5s);
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 0.5ch;
+    text-decoration: none;
+}
+.button:hover {
+    box-shadow: 0 0 0.5em var(--carbon);
+    scale: 1.1;
+    opacity: 1;
+}
+.button:after {
+    background-color: var(--white, white);
+}
+.link {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+    outline: inherit;
+    padding: 0;
+    outline: 0;
+    margin: 0;
+    color: var(--accent, inherit);
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    opacity: 0.85;
+    transition: opacity var(--animation-time, 0.5s) linear;
+}
+.link:hover {
+    opacity: 1;
+}
+.link:after, .button:after {
+    content: '';
+    position: absolute;
+    bottom: -0.25ch;
+    height: 0.25em;
+    left: -0.15ch;
+    border-radius: 0.15ch;
+    width: 0;
+    background-color: var(--accent);
+    transition: width var(--animation-time, 0.5s);
+}
+.link:hover:after {
+    width: calc(100% + 0.3ch);
+}
+
+p {    
+    margin: 0;
+}
+
+footer {
+    background: var(--carbon, gray);
+    color: var(--white, white);
+}

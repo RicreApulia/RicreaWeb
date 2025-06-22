@@ -292,4 +292,7 @@ export class HttpClient {
 
 }
 
+function useFragment(url, opt = {}, init) {
+	const fragment = fetch(url, opt).then(res => res.text()).then(html = )
+}
 
