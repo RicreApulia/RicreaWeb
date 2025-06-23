@@ -15,6 +15,24 @@
 		},
 		"Pages": {
 			"Chi siamo": "/about"
-		}
+		},
+		"Events": [
+			{
+				"name": "cena con delitto",
+				"link": "https://docs.google.com/forms/d/e/1FAIpQLSfUumMXHTDESUPJ8t1HqF4TxgXO4au9F4oRoeihekwQztu33Q/viewform?usp=preview"
+			},
+			{
+				"name": "caccia la tesoro",
+				"link": "https://docs.google.com/forms/d/e/1FAIpQLScFN6A_mEObxX4QUEGaISOgZCBqyqypQAhT1K6sRKCuYVj_3g/viewform?usp=preview"
+			},
+			{
+				"name": "giochi da tavolo e logica",
+				"link": "https://docs.google.com/forms/d/e/1FAIpQLSc2G9b2Q2hCYyaqWO27SVEOxUJxh9KYqdkcPYhdL6iGl3Z4IQ/viewform?usp=preview"
+			},
+			{
+				"name": "evento personalizzato",
+				"link": "https://docs.google.com/forms/d/e/1FAIpQLSepzybcI5Iso09He6WAlPW6DXHGgmCgsN8CfrK5mzWm6xHh2Q/viewform?usp=preview"
+			}
+		]
 	}
 }

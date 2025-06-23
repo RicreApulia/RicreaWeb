@@ -58,6 +58,7 @@
     background-color: var(--white, white);
 }
 .link {
+    display: inline-block;
     cursor: pointer;
     background: none;
     border: none;

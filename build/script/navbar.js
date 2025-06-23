@@ -1,2 +1,2 @@
 
-	const mailDialog = useDialog('#mail-dialog', '#mail-dialog button')
+	useDialog('#mail-dialog', '#mail-dialog button', '#navbar button')

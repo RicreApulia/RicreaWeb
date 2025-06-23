@@ -2,7 +2,7 @@
 	margin: 0.5em;
 	display: flex;
 	justify-content: flex-end;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	right: 0;
 	
@@ -88,7 +88,7 @@
 	<nav id="navbar" class="flex-center">
 		<menu class="action">
 			<li class="nav-item">
-				<button type="button" class="link" onclick="mailDialog.open()">
+				<button type="button" class="link">
 					<span>Il tuo evento<span>
 				</button>
 			</li>
@@ -113,9 +113,9 @@
 			{{ end }}
 		</menu>
 	</nav>
-	{{ use "event-popup" }}
+	{{ use "event-popup" ( props "dialogID" "mail-dialog" ) }}
 </html>
 <script require="event-popup">
-	const mailDialog = useDialog('#mail-dialog', '#mail-dialog button')
+	useDialog('#mail-dialog', '#mail-dialog button', '#navbar button')
 </script>
 
