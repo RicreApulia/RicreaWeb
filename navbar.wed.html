@@ -8,8 +8,9 @@
 	
 	#navbar {
 		font-size: 1.25rem;
-		display: inline-flex;
-		width: max-content;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: end;
 		gap: 1em;
 	}
 
@@ -112,5 +113,9 @@
 			{{ end }}
 		</menu>
 	</nav>
+	{{ use "event-popup" }}
 </html>
+<script require="event-popup">
+	const mailDialog = useDialog('#mail-dialog', '#mail-dialog button')
+</script>
 

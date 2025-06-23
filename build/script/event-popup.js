@@ -1,22 +1,21 @@
 
 	
-	function useDialog(dialogID, closeQuery, openQuery) {
-		const target = document.getElementById(dialogID)
+	function useDialog(dialogTarget, closeTarget = null, openTarget = null) {
+		const target = select(dialogTarget)
 		const open = () => target.showModal()
 		const close = () => target.close() 
 		const res = { target, open, close }
 
-		if (!!openQuery) {
-			res.targetOpen = document.querySelector(openQuery)
+		if (!!openTarget) {
+			res.targetOpen = select(openTarget)
 			res.targetOpen.addEventListener("click", open)
 		}
 
-		if (!!closeQuery) {
-			res.targetClose = target.querySelector(closeQuery);
+		if (!!closeTarget) {
+			res.targetClose = select(closeTarget);
 			res.targetClose.addEventListener("click", close)
 		}
 
 		return res
 	}
 
-	const mailDialog = useDialog('mail-dialog', 'button')

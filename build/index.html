@@ -7,12 +7,14 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="style/wed-style.css" /><link rel="stylesheet" href="style/navbar.css"/>
+    <link rel="stylesheet" href="style/wed-style.css" /><link rel="stylesheet" href="style/event-popup.css"/>
+<link rel="stylesheet" href="style/navbar.css"/>
 <link rel="stylesheet" href="style/header.css"/>
 
     
     <script type="text/javascript" src="script/wed/utils.js"></script>
-
+<script defer type="text/javascript" src="script/event-popup.js"></script>
+<script defer type="text/javascript" src="script/navbar.js"></script>
     
     <meta name="description" content="Il gioco sul serio">
     <meta name="keywords" content="RicreApulia">
@@ -110,6 +112,36 @@
 			
 		</menu>
 	</nav>
+	<div class="event-popup-component wed-component">
+	<dialog id="mail-dialog">
+		<header>
+			<strong>Organizza il tuo evento</strong>
+		</header>
+		<p>
+			Hai un locale che vuoi vivacizzare? blah blah blah...
+			Quisque vitae varius ex, eu volutpat orci.
+			Integer ultricies malesuada quam.
+			Cras erat dui, finibus vel lectus ac, pharetra dictum odio.
+			Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc.
+			Cras vel elit sed mi placerat pharetra eget vel odio.
+			Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc.
+			Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+		</p>
+		<nav class="keypad">
+			<button class="secondary button close-btn" type="button">
+				<i class="fa fa-close"></i>
+				<span>Annulla</span>
+			</button>
+			<a class="primary button" href="mailto:ricreapulia@gmail.com?subject=Richiesta%20organizzazione%20evento">
+				<i class="fa fa-send"></i>
+				<span>Scrivici</span>
+			</a>
+		</nav>
+	</dialog>
+</div>
 </div>
 		<h1 class="title">RicreApulia</h1>
 		<h2 class="subtitle">Il gioco sul serio</h2>

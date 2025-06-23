@@ -1,0 +1,49 @@
+.event-popup-component.wed-component{
+	#mail-dialog {
+		font-size: 1.25rem;
+		width: min(25em, calc(100% - 4em));
+		margin: 1em auto;
+		background: transparent;
+		/*display: inline-flex;
+		flex-direction: column;
+		gap: 1em;*/
+		border: none;
+		border-radius: 1em;
+		background-color: var(--white, white);
+		box-shadow: 0 0 1em;
+		padding: 1em;
+		max-height: calc(100% - 4em);
+
+		header {
+			font-size: 1.25em;
+		}
+	}
+	#mail-dialog:backdrop {
+		background-image: linear-gradient(
+			45deg,
+			var(--red, red),
+			var(--light-red, lightred),
+			var(--light-violet, lightviolet),
+			var(--violet, violet),
+			var(--dark-violet, dark),
+			var(--purple, purple)
+		);
+		opacity: 0.5;
+	}
+	
+	.keypad {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75em;
+		gap: 0.75em;
+		border-radius: 1em;
+		background-color: hsl(0, 0%, 85%);
+		box-shadow: 0.25em 0.25em 1em hsl(0, 0%, 57.5%) inset;
+		width: -moz-available;
+	}
+	#mail-dialog .keypad .button {
+		font-size: 55%;
+	}
+}

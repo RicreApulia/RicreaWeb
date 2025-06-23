@@ -1,18 +1,76 @@
+<style>
+	#mail-dialog {
+		font-size: 1.25rem;
+		width: min(25em, calc(100% - 4em));
+		margin: 1em auto;
+		background: transparent;
+		/*display: inline-flex;
+		flex-direction: column;
+		gap: 1em;*/
+		border: none;
+		border-radius: 1em;
+		background-color: var(--white, white);
+		box-shadow: 0 0 1em;
+		padding: 1em;
+		max-height: calc(100% - 4em);
+
+		header {
+			font-size: 1.25em;
+		}
+	}
+	#mail-dialog:backdrop {
+		background-image: linear-gradient(
+			45deg,
+			var(--red, red),
+			var(--light-red, lightred),
+			var(--light-violet, lightviolet),
+			var(--violet, violet),
+			var(--dark-violet, dark),
+			var(--purple, purple)
+		);
+		opacity: 0.5;
+	}
+	
+	.keypad {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75em;
+		gap: 0.75em;
+		border-radius: 1em;
+		background-color: hsl(0, 0%, 85%);
+		box-shadow: 0.25em 0.25em 1em hsl(0, 0%, 57.5%) inset;
+		width: -moz-available;
+	}
+	#mail-dialog .keypad .button {
+		font-size: 55%;
+	}
+</style>
 <html>
 	<dialog id="mail-dialog">
 		<header>
-			<strong class="title">Organizza il tuo evento</strong>
+			<strong>Organizza il tuo evento</strong>
 		</header>
 		<p>
 			Hai un locale che vuoi vivacizzare? blah blah blah...
-			Quisque vitae varius ex, eu volutpat orci. Integer ultricies malesuada quam. Cras erat dui, finibus vel lectus ac, pharetra dictum odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Cras vel elit sed mi placerat pharetra eget vel odio. Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc. Nullam tempus scelerisque purus, sed mattis elit condimentum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+			Quisque vitae varius ex, eu volutpat orci.
+			Integer ultricies malesuada quam.
+			Cras erat dui, finibus vel lectus ac, pharetra dictum odio.
+			Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc.
+			Cras vel elit sed mi placerat pharetra eget vel odio.
+			Etiam risus sapien, auctor eu volutpat sit amet, porta in nunc.
+			Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Nullam tempus scelerisque purus, sed mattis elit condimentum nec.
 		</p>
 		<nav class="keypad">
-			<button class="secondary button" type="button" onclick="mailDialog.close()">
+			<button class="secondary button close-btn" type="button">
 				<i class="fa fa-close"></i>
 				<span>Annulla</span>
 			</button>
-			<a class="primary button" href="mailto:{{.Site.Mail}}?subject=Richiesta%20organizzazione%20evento">
+			<a class="primary button" href="mailto:{{ var `Mail` }}?subject=Richiesta%20organizzazione%20evento">
 				<i class="fa fa-send"></i>
 				<span>Scrivici</span>
 			</a>
@@ -21,25 +79,24 @@
 </html>
 <script>
 	
-	function useDialog(dialogID, closeQuery, openQuery) {
-		const target = document.getElementById(dialogID)
+	function useDialog(dialogTarget, closeTarget = null, openTarget = null) {
+		const target = select(dialogTarget)
 		const open = () => target.showModal()
 		const close = () => target.close() 
 		const res = { target, open, close }
 
-		if (!!openQuery) {
-			res.targetOpen = document.querySelector(openQuery)
+		if (!!openTarget) {
+			res.targetOpen = select(openTarget)
 			res.targetOpen.addEventListener("click", open)
 		}
 
-		if (!!closeQuery) {
-			res.targetClose = target.querySelector(closeQuery);
+		if (!!closeTarget) {
+			res.targetClose = select(closeTarget);
 			res.targetClose.addEventListener("click", close)
 		}
 
 		return res
 	}
 
-	const mailDialog = useDialog('mail-dialog', 'button')
 </script>
 

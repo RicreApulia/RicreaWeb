@@ -8,8 +8,9 @@
 	
 	#navbar {
 		font-size: 1.25rem;
-		display: inline-flex;
-		width: max-content;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: end;
 		gap: 1em;
 	}
 
