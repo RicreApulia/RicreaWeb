@@ -1,0 +1,97 @@
+<style>
+
+	figure {
+		overflow: hidden;
+		position: relative;
+		margin: 0;
+		border: 0.25em solid var(--white, white);
+		border-radius: 1em;
+		background-color: var(--white, white);
+		color: var(--black, black);
+		cursor: zoom-in;
+		
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+		}
+
+		figcaption {
+			position: absolute;
+			bottom: -5em;
+			width: calc(100% - 1em);
+			left: 0;
+			padding: 0.5em;
+			place-content: center;
+			background-color: inherit;
+			opacity: 0.75;
+			transition: bottom var(--animation-time, 0.5s) linear;
+		}
+
+	}
+	figure:hover figcaption {
+		bottom: 0;
+	}
+
+	.wrapper {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		place-content: center;
+		align-items: center;
+	}
+
+	.wrapper.open {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-height: min(100vh, 100vw);
+		max-width: min(100vh, 100vw);
+		z-index: 1;
+		pointer-events: all;
+	}
+	.open figure {
+		max-height: min(100vh, 100vw);
+		max-width: min(100vh, 100vw);
+		cursor: zoom-out;
+		box-shadow: 0 0 100vw;
+	}
+	.open figure:before {
+		content: 'x';
+		font-size: 1.25em;
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		place-content: center;
+		text-align: center;
+		line-height: 1em;
+		font-family: 'monospace';
+		height: 1.5em;
+		aspect-ratio: 1;
+		background-color: inherit;
+		opacity: 0.75;
+		border-radius: 0 0 0 0.5em;
+	}
+</style>
+<html>
+	<div class="wrapper">
+		<figure class="inline-flex-center">
+			<img src="{{ .Props.img }}" alt="{{ .Props.description }}">
+			<figcaption class="flex-center">
+				{{ .Props.description }}
+			</figcaption>
+		</figure>
+	</div>
+</html>
+<script>
+	[...document.getElementsByClassName("postcard-component")].forEach(comp => {
+		const figure = comp.children[0]
+		figure.addEventListener("click", event => {
+			figure.classList.toggle("open")
+			document.body.classList.toggle("prevent-scroll")
+		})
+	})
+</script>
+
