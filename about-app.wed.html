@@ -1,0 +1,277 @@
+<style>
+	.navbar {
+		font-size: 1.5em;
+		/*background: linear-gradient(90deg,
+			transparent 25%,
+			var(--red, red),
+			var(--purple, purple)
+		);*/
+		height: 2em;
+		display: flex;
+		gap: 1em;
+		justify-content: space-between;
+		align-items: center;
+
+		a {
+			text-decoration: none;
+			height: 100%;
+		}
+
+		.brand {
+			aspect-ratio: 1;
+			height: 100%;
+		}
+	}
+
+	section {
+		padding: 2em;
+		/* TODO: mobile view flex-wrap: wrap; */
+		justify-content: space-between;
+	}
+	
+	.runner {
+		background-color: hsl(var(--fallback-hue, var(--violet-hue)), 50%, 75%);
+		--light-lv: calc(20% + 60% * var(--light, 1)); /* 80 / 20 */
+		background: linear-gradient(-45deg,
+			hsl(var(--primary-hue,   var(--red-hue)),    70%, calc(var(--light-lv, 20%) - 10%)) 0%, /* 70% */
+			hsl(var(--secondary-hue, var(--purple-hue)), 70%, var(--light-lv, 20%)) 50%, /* 80% */
+			hsl(var(--primary-hue,   var(--red-hue)),    70%, calc(var(--light-lv, 20%) + 10%)) 100% /* 90% */
+		);
+		color: hsl(0, 0%, calc(80% - 60% * var(--light, 1)));
+	}
+	.light {
+		--light: 1;
+	}
+	.dark {
+		--light: 0;
+	}
+	.runner.red {
+		--fallback-hue: var(--light-red-hue);
+		--primary-hue: var(--red-hue);
+		--secondary-hue: var(--light-violet-hue);
+	}
+	.runner.violet {
+		--fallback-hue: var(--dark-violet-hue);
+		--primary-hue: var(--violet-hue);
+		--secondary-hue: var(--purple-hue);
+	}
+
+	.split-view {
+		position: relative;
+		gap: 2em;
+		justify-content: space-evenly;
+		align-items: center;
+		
+		.backdrop {
+			background: url("/assets/images/gruppo.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 100%;
+			width: 100%;
+			z-index: -1;
+			filter: blur(10px);
+			opacity: 0.5;
+			box-shadow: 0 0 4em var(--white, white) inset;
+		}
+		
+		aside {
+			width: 100%;
+		}
+	}
+
+	.big-icon-wrapper {
+		font-size: 1.5em;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		gap: 2em;
+		justify-content: start;
+		align-items: center;
+		align-content: center;
+		width: 100%;
+
+		figcaption {
+			align-items: center;
+			max-width: 50%;
+		}
+
+		
+		.big-icon {
+			font-size: 2.25em;
+			padding: 1em;
+			line-height: 1em;
+			display: inline-flex;
+			height: 1em;
+			aspect-ratio: 1;
+			background-color: var(--carbon, gray);
+			color: var(--white, white);
+			border-radius: 100%;
+			flex-direction: column;
+			position: relative;
+
+			strong {
+				font-size: 0.25em;
+				position: absolute;
+				bottom: 0.75em;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+
+</style>
+<html>
+	<nav class="navbar">
+		<a href="/" class="flex-center">
+			<img src="/assets/images/logo.png" class="brand">
+			<span>{{ var "Name" }}</span>
+		</a>
+	</nav>
+	<header>
+		<!-- <div class="backdrop"></div> -->
+		<section class="split-view flex-center runner">
+			<div>
+				<h1>
+					Chi siamo
+				</h1>
+				<p>
+					RicreApulia è un’associazione di promozione sociale di matrice ludico culturale presente su Bisceglie dal 2016,
+					conta <em>più di 100 soci</em> e a partire dalla sua fondazione ha svolto presso la sua sede,
+					in tutta la Regione e <strong>oltre 300 eventi tra attività sociali, ludico-culturali e corsi di formazione</strong>
+					rivolti alla cittadinanza con diversa e svariata tipologia di utenza ed età.
+					L’Associazione si propone l’obiettivo di diffondere un’idea di gioco utile la cui applicazione è orientata agli ambiti sociale,
+					culturale, educativo-formativo, civico e artistico.
+				</p>
+				<p>
+					Il gioco per noi è una cosa seria, in quanto è in grado di stimolare la crescita personale e di gruppo,
+					sensibilizzare ed educare su tematiche sociali e promuovere la storia e la tradizione del territorio.
+				</p>
+			</div>
+			<aside>
+				{{ use "postcard" ( props 
+					"img" "assets/images/gruppo.jpg"
+					"description" "I nostri volontari membri del Consiglio Direttivo e gruppo operativo"
+				) }}
+			</aside>
+		</section>
+		<section class="flex-center">
+			<figure class="big-icon-wrapper">
+				<span class="big-icon">
+					<i class="fa fa-id-card"></i>
+					<!--<i class="fa fa-group"></i>-->
+					<strong>+100 soci</strong>
+				</span>
+				<figcaption class="inline-flex-center">Ad oggi siamo più di 100 volontari!</p>
+			</figure>
+			<figure class="big-icon-wrapper">
+				<span class="big-icon">
+					<i class="fa fa-hand-peace-o"></i>
+					<!-- <i class="fa fa-fortaweasome"></i> -->
+					<strong>+300 eventi</strong>
+				</span>
+				<figcaption class="inline-flex-center">Tra attività sociali, ludico-culturali e corsi di formazione</p>
+			</figure>
+		</section>
+		<section class="split-view flex-center runner red light">
+			<aside>
+				{{ use "postcard" ( props 
+					"img" "assets/images/sede.jpg"
+					"description" "La nostra attuale sede in via Isonzo 62, Bisceglie (BT)"
+				) }}
+			</aside>
+			<div>
+				<p>
+					La nostra prospettiva è sinergica in quanto mettiamo in campo le conoscenze e competenze di tutti i soci:
+					organizzatori di eventi di professione, editor, narratori, digital copywriter,
+					educatori professionali, psicologi e psicoterapeuti,
+					tecnici della riabilitazione psichiatrica, medici, matematici e storici.
+					Inoltre, le nostre attività riguardano la sfera ricreativa e culturale a 360°:
+					abbiamo all’attivo da due anni un club del libro e svolgiamo corsi di formazione:
+					di lingua inglese, indonesiana e giapponese, di scrittura ma anche di avvicinamento al vino,
+					e diverse attività artistiche di pittura, di cucito e di ricamo.
+				</p>
+				<p>
+					Abbiamo una rete ormai consolidata di attività di valore sociale con diverse realtà della nostra Regione e non solo:
+					Trani e Bisceglie Autism Friendly, Time Aut Odv, Comunità Oasi 2 San Francesco Onlus, Università degli Studi di Bari Aldo Moro,
+					Centro socio-educativo Villa Giulia, Family Lab Bisceglie e Trani,
+					S.A.I.D. Soc. Coop. sociale di assistenza scolastica specialistica,
+					Scuola primaria E. De Amicis, IISS Sergio Cosmai Istituto d’istruzione secondaria,
+					Comitato Diocesano Feste Patronali Bisceglie, Covo della Fenice, Urca APS,
+					Amnesty Puglia e Bisceglie, Oltre i confini circolo Arci, Libreria Miranfù,
+					il Nocciolo, Controcorrente SOS, Tulipani di Seta Nera: festival della cinematografia sociale,
+					Cineclub Canudo e altre.
+				</p>
+			</div>
+		</section>
+	</header>
+	<main class="runner violet light">
+		<section class="split-view flex-center">
+			<div></div>
+
+La nascita di RicreApulia, nel lontano 2016
+Il nostro percorso è iniziato nel 2016 con un progetto di Rigenerazione Urbana intitolato “Ricreando Villa Angelica”, dove grazie al lavoro volontario dei soci è stato restituito alla cittadinanza di Bisceglie un immobile storico in stato di degrado e abbandono, sede dell’Associazione dal 2017 al 2018.
+Link dell’inaugurazione: 
+https://www.bisceglie24.it/attualita/villa-angelica-riapre-grazie-al-lavoro-volontario-dei-soci-ricreapulia-video/
+
+FOTO INAUGURAZIONE
+		</section>
+
+
+
+Le nostre attività di gioco sociale
+Abbiamo realizzato il progetto di gioco da tavolo “Ricre-AuADHD (RicreAut)” studiato ad hoc per i ragazzi con autismo del Trani Autism Friendly in collaborazione con i terapisti e psicologi, Time Aut Odv, libreria Miranfù e il Comune di Trani, svolto su 10 incontri da giugno a ottobre 2023. Il gioco da tavolo si è dimostrato uno strumento utile per stimolare le abilità fino-motorie, visuo-percettive e le funzioni esecutive dei ragazzi. 
+Link dell’articolo al progetto: 
+https://www.traniviva.it/notizie/trani-gioca-l-autismo-con-taf-e-ricreapulia/ 
+FOTO SOCIALE (DA 1 A 6)
+
+Altri progetti sociali di gioco da tavolo sono: “Gioco senza frontiere” per l’integrazione dei cittadini extracomunitari richiedenti asilo della Comunità Oasi 2 San Francesco Onlus svolto su 6 incontri presso la nostra sede da maggio 2023 fino a marzo 2024; “Il gioco che unisce” per l’integrazione dei minori a rischio del centro socio-educativo di Villa Giulia, svolto su 4 incontri presso la nostra sede da settembre 2023 a maggio 2024; il progetto di gioco di ruolo “Cena sociale con delitto” rivolto ai cittadini extracomunitari richiedenti asilo residenti della Comunità Migrantesliberi di Andria.
+ 
+FOTO SOCIALE (DA 7 A 13)
+
+Eventi di gioco per l’infanzia
+FOTO INFANZIA
+
+
+Eventi di Gioco di Ruolo
+Si tratta di progetti di gioco scritti e strutturati ad hoc dai nostri soci professionisti in cui vi è una struttura narrativa, una cornice storica, i background dei personaggi con i loro aspetti storici e personologici, enigmi e giochi di logica da risolvere. La sinergia di narrazione e gioco è in grado di stimolare tutte le funzioni esecutive di bambini e adulti e attivare processi di team building, gamification, problem solving e decision making, nonché competenze essenziali in tutti i contesti di vita. I
+Il progetto di ricerca sperimentale di RicreApulia in collaborazione con il dipartimento For.Psi.Com. dell’Università degli Studi di Bari Aldo Moro intitolato “La musica nel Gioco di Ruolo come mezzo per facilitare la connessione sociale e la risoluzione pacifica dei conflitti” è testimone di come questi processi si attivino in dinamiche individuali e gruppali.
+FOTO GDR
+
+Eventi di gioco da tavolo e di carte
+FOTO GDT E CARTE
+
+Eventi ricreativi e artistici di pittura, cucito e ricamo
+FOTO ART
+
+Fiere ed eventi cittadini
+Organizziamo eventi nel nostro paese e in tutta la Regione come cacce al tesoro: giochi di logica a tappe con indovinelli collegati alla letteratura, storia e cultura del territorio di appartenenza locale.
+FOTO FIERA
+
+Club del libro
+FOTO CLUB
+
+Corsi di formazione
+Corsi di formazione di lingua inglese, indonesiana, giapponese, di primo soccorso, di scrittura per la narrazione e di avvicinamento al vino. 
+FOTO CORSI
+	</main>
+	{{ use "footer" }}
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

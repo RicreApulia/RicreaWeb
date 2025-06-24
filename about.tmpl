@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>{{ var "Name" }} | Chi siamo </title>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/main.css">
+    {!import{ styles }!}
+    <!-- Scripts -->
+    {!import{ scripts }!}
+    <!-- SEO -->
+    <meta name="description" content="{{ var "About" }}">
+    <meta name="keywords" content="{{ var "Name" }}">
+    <meta name="subject" content="{{ var "About" }}">
+    <meta name="language" content="{{ var "Language" }}">
+    <meta name="robots" content="index,follow">
+    <meta name="revised" content="{{ var "Time" }}">
+    <meta name="abstract" content="{{ var "About" }}">
+    <meta name="topic" content="Tabletop games, GDR">
+    <meta name="summary" content="{{ var "About" }}">
+    <meta name="designer" content="Davide Lavermicocca, dlavermicocca99.uni@gmail.com">
+    <meta name="author" content="Davide Lavermicocca, dlavermicocca99.uni@gmail.com">
+    <meta name="reply-to" content="{{ var "Mail" }}">
+    <meta name="owner" content="{{ var "Owner" }}, {{ var "Mail" }}">
+    <!-- 
+    <meta name="url" content="{ var "Domain" }">
+    <meta name="identifier-URL" content="{ var "Domain" }">
+    -->
+    <meta name="pagename" content="{{ var "Name" }}">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="general">
+    <meta name="subtitle" content="{{ var "About" }}">
+    <meta name="date" content="{{ var "Time" }}">
+    <meta name="search_date" content="{{ var "Time" }}">
+    <meta name="medium" content="blog">
+    <meta name="pageKey" content="guest-home">
+    <!-- Beautify link -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ var "Name" }} - Home">
+    <meta property="og:description" content="{{ var "About" }}">
+    <!-- <meta property="og:url" content="{ var "Domain" }"> -->
+    <meta property="og:site_name" content="{{ var "Name" }}">
+    <meta property="og:updated_time" content="{{ var "Time" }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ var "Name" }} - Home">
+    <meta name="twitter:description" content="{{ var "About" }}">
+	</head>
+	<body>
+		{!import{ dynamics }!}
+		{{ use "about-app" }}
+	</body>
+</html>

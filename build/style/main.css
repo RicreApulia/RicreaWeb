@@ -7,12 +7,20 @@
     --light-carbon: #333333;
     --white: whitesmoke;
     --black: black;
-    --red:          hsl(342, 100%, 34%); /* #AD0034 */
-    --light-red:    hsl(335, 100%, 37%); /* #BB004E */
-    --light-violet: hsl(324, 100%, 36%); /* #B7006E */
-    --violet:       hsl(303, 100%, 33%); /* #A900A0 */
-    --dark-violet:  hsl(291, 100%, 36%); /* #9B00B7 */
-    --purple:       hsl(281, 100%, 38%); /* #8300C0 */
+
+    --red-hue:          342;
+    --light-red-hue:    335;
+    --light-violet-hue: 324;
+    --violet-hue:       303;
+    --dark-violet-hue:  291;
+    --purple-hue:       281;
+
+    --red:          hsl(var(--red-hue, 342), 100%, 36%);          /* #AD0034 */
+    --light-red:    hsl(var(--light-red-hue, 335), 100%, 36%);    /* #BB004E */
+    --light-violet: hsl(var(--light-violet-hue, 324), 100%, 36%); /* #B7006E */
+    --violet:       hsl(var(--violet-hue, 303), 100%, 36%);       /* #A900A0 */
+    --dark-violet:  hsl(var(--dark-violet-hue, 291), 100%, 36%);  /* #9B00B7 */
+    --purple:       hsl(var(--purple-hue, 281), 100%, 36%);       /* #8300C0 */
 
     /* ---- THEME ---- */
     --accent: var(--light-violet, indianred);
@@ -99,4 +107,11 @@ p {
 footer {
     background: var(--carbon, gray);
     color: var(--white, white);
+}
+
+.prevent-scroll {
+    overflow: hidden;
+    max-height: var(--prevent-max-height, 100%);
+    max-width: var(--prevent-max-width, 100%);
+    pointer-events: none;
 }
