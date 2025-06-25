@@ -1,11 +1,6 @@
 .about-app-component.wed-component{
 	.navbar {
 		font-size: 1.5em;
-		/*background: linear-gradient(90deg,
-			transparent 25%,
-			var(--red, red),
-			var(--purple, purple)
-		);*/
 		height: 2em;
 		display: flex;
 		gap: 1em;
@@ -26,7 +21,6 @@
 	section {
 		padding: 2em;
 		/* TODO: mobile view flex-wrap: wrap; */
-		justify-content: space-between;
 	}
 	
 	.runner {
@@ -99,7 +93,6 @@
 			align-items: center;
 			max-width: 50%;
 		}
-
 		
 		.big-icon {
 			font-size: 2.25em;
@@ -122,6 +115,35 @@
 				transform: translateX(-50%);
 			}
 		}
+	}
+
+	.slideshow-container {
+		font-weight: bold;
+		opacity: 0.75;
+	}
+
+	.big-quote-wrapper {
+		font-size: 3em;
+		font-size: 1.75em;
+
+		blockqote {
+			text-align: justify;
+			font-style: italic;
+		}
+
+		figcaption {
+			text-align: initial;
+			font-size: 1rem;
+		}
+	}
+
+	.gallery-wrapper {
+		border: 0.25em solid var(--white, white);
+		background-color: hsla(0, 0%, 0%, 0.35);
+		border-radius: 1em;
+		box-shadow: 0 0 1em inset, 0 0 0.15em;
+		overflow: hidden;
+		margin: 1em;
 	}
 
 }
