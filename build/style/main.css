@@ -115,3 +115,36 @@ footer {
     max-width: var(--prevent-max-width, 100%);
     pointer-events: none;
 }
+
+.popup {
+    box-shadow: 0 0 1em;
+    border: none;
+    border-radius: 1em;
+    /* animation stuffs */
+    overflow: hidden;
+    transition: all var(--animation-time, 0.5s) linear;
+    transition-behavior: allow-discrete;
+    opacity: 1;
+}	
+.popup::backdrop {
+    background-image: linear-gradient(
+        45deg,
+        var(--red, red),
+        var(--light-red, lightred),
+        var(--light-violet, lightviolet),
+        var(--violet, violet),
+        var(--dark-violet, dark),
+        var(--purple, purple)
+    );
+    opacity: 0.5;
+}
+
+@starting-style {
+    .popup {
+        opacity: 0;
+        max-height: 0 !important;
+        max-width: 0 !important;
+    }
+}
+
+
