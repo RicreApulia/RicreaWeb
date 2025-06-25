@@ -1,0 +1,37 @@
+<style>
+	div {
+		overflow: hidden;
+		vertical-align: baseline;
+	}
+
+	span {
+		display: inline-block;
+		white-space: nowrap;
+		max-width: 0;
+		opacity: 0;
+		height: 100%;
+		overflow: hidden;
+		transition: opacity var(--animation-time, 0.5s) linear,
+			max-width var(--animation-time, 0.5s) linear;
+	}
+	.display {
+		opacity: 1;
+		max-width: 100%;
+	}
+</style>
+<html>
+	<div class="inline-flex-center">
+		{{ range $ind, $val := .Props.items }}
+		<span {{ if not $ind }} class="display" {{ end }}>{{ $val }}</span>
+		{{ end }}
+	</div>
+</html>
+<script>
+	window.setInterval(() => document.querySelectorAll(".slideshow-text-component").forEach(comp => {
+		const items = Array.from(comp.children[0].children, span => span.classList)
+		const ind = items.findIndex(span => span.contains("display"))
+		items[ind].toggle("display")
+		items[ind == items.length -1 ? 0 : ind +1].toggle("display")
+	}), 2000)
+</script>
+
