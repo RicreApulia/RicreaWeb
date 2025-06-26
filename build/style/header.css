@@ -92,6 +92,6 @@
 
 	.spacer, section {
 		padding: 1em;
-		background-color: var(--light-carbon, lightgray);
+		background-color: hsl(var(--purple-hue, 320), 75%, 80%);
 	}
 }
