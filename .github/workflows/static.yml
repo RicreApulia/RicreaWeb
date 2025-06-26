@@ -31,11 +31,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build with Wednesday
-        uses: DazFather/Wednesday/.github/actions/wed-build@test-action-3
       - name: Print working directory
         run: pwd
       - name: List project contents
         run: ls -laR
+        uses: DazFather/Wednesday/.github/actions/wed-build@test-action-4
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
