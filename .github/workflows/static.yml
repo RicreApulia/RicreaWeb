@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build with Wednesday
-        uses: DazFather/Wednesday/.github/actions/wed-build@v.1.0.0-alpha.8
+        uses: DazFather/Wednesday/wed-build@v1.0.0-alpha.8
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
