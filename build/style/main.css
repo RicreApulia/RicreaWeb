@@ -128,7 +128,7 @@ footer {
 }	
 .popup::backdrop {
     background-color: var(--dark-carbon, gray);
-    background-image: radial-gradient(circle
+    background-image: radial-gradient(circle,
         hsla(0, 0%, 0%, 75%),
         hsla(var(--purple-hue), 50%, 50%, 50%)
     );
