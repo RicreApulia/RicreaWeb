@@ -127,7 +127,7 @@ footer {
     opacity: 1;
 }	
 .popup::backdrop {
-    background-color: var(--dark-carbon, gray);
+    background-color: hsla(0, 0%, 0%, 50%);
     background: radial-gradient(circle,
         hsla(0, 0%, 0%, 0.75),
         hsla(var(--purple-hue), 50%, 50%, 0.5)
