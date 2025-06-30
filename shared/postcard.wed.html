@@ -1,6 +1,7 @@
 <style>
 
 	figure {
+		min-width: 175px;
 		overflow: hidden;
 		position: relative;
 		margin: 0;
@@ -9,7 +10,8 @@
 		background-color: var(--white, white);
 		color: var(--black, black);
 		cursor: zoom-in;
-		
+
+
 		img {
 			max-width: 100%;
 			max-height: 100%;
@@ -21,7 +23,7 @@
 			bottom: -100%;
 			max-height: 0;
 			overflow: hidden;
-			width: calc(100% - 1em);
+			width: 100%;
 			left: 0;
 			padding: 0.5em;
 			place-content: center;
@@ -47,10 +49,20 @@
 	}
 
 </style>
-<html>
+<html>{{ $lazy := .Props.lazy }}
 	<div class="wrapper">
-		<figure class="inline-flex-center" onclick="zoomPicture(`{{ .Props.img }}`, `{{ .Props.description }}`)">
-			<img src="{{ .Props.img }}" alt="{{ .Props.description }}">
+		<figure
+			class="inline-flex-center {{ if $lazy }}skeleton{{ end }}"
+			onclick="zoomPicture(`{{ .Props.img }}`, `{{ .Props.description }}`)"
+		>
+			<img
+				src="{{ .Props.img }}"
+				alt="{{ .Props.description }}"
+				{{ if $lazy }}
+					loading="lazy"
+					onload="(e => this.parentElement.classList.remove('skeleton'))(event)"
+				{{ end }}
+			>
 			<figcaption class="flex-center">
 				{{ .Props.description }}
 			</figcaption>

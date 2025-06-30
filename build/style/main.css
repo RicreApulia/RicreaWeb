@@ -132,6 +132,7 @@ footer {
         hsla(0, 0%, 0%, 0.75),
         hsla(var(--purple-hue), 50%, 50%, 0.5)
     );
+    opacity: 1;
 }
 
 @starting-style {
@@ -142,4 +143,25 @@ footer {
     }
 }
 
+.skeleton {
+    animation: skeleton-wave var(--animation-time, 0.5s) linear infinite alternate;
+    box-shadow: none;
+    opacity: 0.5;
+}
+figure.skeleton {
+    flex-direction: column;
+}
+figure.skeleton:before {
+    content: '\f03e';
+    font-family: FontAwesome;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0.25;
+    display: block;
+}
 
+/* linear-gradient(45deg, var(--red, red), var(--purple, purple)) */
+@keyframes skeleton-wave {
+    from { background-color: hsla(var(--light-violet-hue, 200), 45%, 50%, 0.5)   }
+    to   { background-color: hsla(var(--purple-hue, 200),       45%, 50%, 0.25)  }
+}
