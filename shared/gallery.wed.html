@@ -38,24 +38,10 @@
 			{{ use "postcard" ( props 
 				"img"         ( index $item 0 )
 				"description" ( index $item 1 )
+				"lazy"		true
 			) }}
 		</li>
 		{{ end }}
 	<ul>
-	<!-- {{ if .Props.path }}
-		<ul class="gallery inline-flex-center">
-			{{ $path := print .Props.path }}
-			{{ $ext := print .Props.ext }}
-			{{ range $ind, $desc := .Props.descriptions }}
-			<li class="flex-center">
-				{{ use "postcard" ( props 
-					"img"         ( printf "%v%v%v" $path $ind $ext )
-					"description" $desc
-				) }}
-			</li>
-			{{ end }}
-		<ul>
-		{{ end }}
-	-->
 </html>
 
