@@ -30,3 +30,8 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+build/*.html
+build/script/*.js
+build/style/*.css
+!build/style/main.css
